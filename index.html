@@ -532,6 +532,24 @@
             <span class="arrow" aria-hidden="true">↗</span>
           </a>
         </div>
+
+        <form class="contato-form" id="contatoForm">
+          <p class="form-titulo">Ou deixe sua mensagem</p>
+          <div class="form-campos">
+            <label class="form-campo">
+              <span>Seu nome</span>
+              <input id="ctNome" name="nome" type="text" placeholder="Como posso te chamar?" autocomplete="name" required>
+            </label>
+            <label class="form-campo">
+              <span>Mensagem</span>
+              <textarea id="ctMsg" name="mensagem" rows="4" placeholder="Conta um pouco sobre o que precisa..." required></textarea>
+            </label>
+          </div>
+          <button type="submit" class="btn btn-primary form-enviar">
+            Abrir e-mail <svg class="ico" aria-hidden="true"><use href="#ico-arrow"></use></svg>
+          </button>
+          <p class="form-nota">Abre o seu aplicativo de e-mail com a mensagem pronta — nada é enviado daqui.</p>
+        </form>
       </div>
     </section>
   </main>

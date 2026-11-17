@@ -115,6 +115,18 @@
     reveals.forEach((el) => el.classList.add("visible"));
   }
 
+  /* ---------- Formulário de contato -> abre o app de e-mail ---------- */
+  const form = document.getElementById("contatoForm");
+  form?.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const nome = form.nome.value.trim();
+    const mensagem = form.mensagem.value.trim();
+    if (!nome || !mensagem) return;
+    const assunto = encodeURIComponent("Contato via portfólio — " + nome);
+    const corpo = encodeURIComponent("Olá, Raphael!\n\n" + mensagem + "\n\n— " + nome);
+    window.location.href = "mailto:rapha.faalves@gmail.com?subject=" + assunto + "&body=" + corpo;
+  });
+
   /* ---------- Ano no rodapé ---------- */
   document.getElementById("year").textContent = new Date().getFullYear();
 })();
