@@ -438,10 +438,10 @@
   DICT.ru["meta.title"] = "Рафаэль Феррейра Алвес — Инфраструктура, сети и безопасность";
   DICT.ru["meta.description"] = "Портфолио Рафаэля Феррейра Алвеса — аналитик инфраструктуры и поддержки 3-й линии с фокусом на информационную безопасность. Инфраструктура, сети, облако и автоматизация.";
 
+  const tituloOriginal = document.title; // string primitiva — nao recebe propriedades
   const setTitle = () => {
-    if (document.title.__orig === undefined) document.title.__orig = document.title;
     const d = DICT[current];
-    document.title = (current === "pt" || !d) ? document.title.__orig : (d["meta.title"] || document.title.__orig);
+    document.title = (current === "pt" || !d) ? tituloOriginal : (d["meta.title"] || tituloOriginal);
   };
 
   function init() {
