@@ -279,14 +279,14 @@
             <div class="skill-icon" aria-hidden="true">◈</div>
             <h3>Segurança &amp; Governança</h3>
             <p>Gestão de vulnerabilidades com Fortinet Security Fabric, FortiEDR, hardening, pentest, SIEM, firewalls e LGPD (estudos e prática).</p>
-            <div class="tags"><span>Fortinet</span><span>FortiEDR</span><span>Hardening</span><span>Pentest</span><span>SIEM</span><span>LGPD</span></div>
+            <div class="tags"><span>Fortinet</span><span>FortiEDR</span><span>Hardening</span><span>Pentest</span><span>SIEM</span><span>LGPD</span><span>Gestão de segredos</span></div>
           </article>
 
           <article class="skill-card reveal">
             <div class="skill-icon" aria-hidden="true">◈</div>
             <h3>Redes &amp; Infraestrutura</h3>
             <p>Configuração de switches e firewalls, LAN/WAN, Active Directory, Windows Server, Linux, VMs e suporte N2/N3 a campo.</p>
-            <div class="tags"><span>Switches</span><span>Firewalls</span><span>LAN/WAN</span><span>AD</span><span>VMs</span><span>Linux</span></div>
+            <div class="tags"><span>Switches</span><span>Firewalls</span><span>LAN/WAN</span><span>AD</span><span>VMs</span><span>Linux</span><span>WireGuard</span><span>iptables</span></div>
           </article>
 
           <article class="skill-card reveal">
@@ -329,6 +329,13 @@
             <h3>Dados, Voz &amp; Web</h3>
             <p>Transcrição de áudio com faster-whisper (modelos small/base/large-v3), classificação por operação, bancos SQL Server/Oracle e front-end HTML/CSS moderno, responsivo e acessível.</p>
             <div class="tags"><span>Whisper</span><span>SQL</span><span>Oracle</span><span>HTML/CSS</span><span>Design responsivo</span></div>
+          </article>
+
+          <article class="skill-card reveal">
+            <div class="skill-icon" aria-hidden="true">◈</div>
+            <h3>Mensageria &amp; Integrações</h3>
+            <p>Ponte Gupshup para WhatsApp com gestão de templates e falha fechada, automações em n8n, webhooks assinados e plataforma de atendimento — integrações versionadas, com changelog e rollback.</p>
+            <div class="tags"><span>Gupshup</span><span>n8n</span><span>Webhooks</span><span>Chatwoot</span><span>WhatsApp</span></div>
           </article>
         </div>
       </div>
@@ -383,6 +390,48 @@
             <h3>Field service &amp; remote hands</h3>
             <p>Rollouts, montagem de racks, configuração de switches/firewalls e suporte a sistemas operacionais e VMs para operadora de telecom — com inventário, SLA e documentação de cada intervenção.</p>
             <div class="tags"><span>Field Service</span><span>Racks</span><span>SLA</span><span>VMs</span></div>
+          </article>
+
+          <article class="project-card reveal">
+            <div class="project-top"><span class="project-tag">Mensageria</span><span class="project-year">2026</span></div>
+            <h3>Ponte de mensageria conversacional</h3>
+            <p>Integração entre uma API de WhatsApp e a plataforma de atendimento, com gestão de templates aprovados, validação <em>fail-closed</em> quando a configuração some, ambientes isolados por container e deploy via git worktree para não perder releases. Changelog com rollback e timers que vigiam status do número, qualidade e saldo da conta.</p>
+            <div class="tags"><span>Gupshup</span><span>WhatsApp</span><span>Templates</span><span>Docker</span><span>systemd</span><span>Fail-closed</span></div>
+          </article>
+
+          <article class="project-card reveal">
+            <div class="project-top"><span class="project-tag">Segurança</span><span class="project-year">2026</span></div>
+            <h3>Cofre de segredos e injeção em memória</h3>
+            <p>Cofre único de credenciais de máquina cifrado com age, com rotação controlada, inventário sem valores e espelhamento cifrado entre servidores. Os serviços consomem o segredo via drop-in do systemd em tmpfs (0700), sem texto puro em disco; senhas humanas ficam em cofre separado.</p>
+            <div class="tags"><span>age</span><span>tmpfs</span><span>systemd</span><span>Rotação</span><span>Menor privilégio</span></div>
+          </article>
+
+          <article class="project-card reveal">
+            <div class="project-top"><span class="project-tag">Infra &amp; Dados</span><span class="project-year">2026</span></div>
+            <h3>Fila persistente multi-banco</h3>
+            <p>Worker de processamento em lote com estágio persistente no PostgreSQL e instâncias isoladas por operação. Cada worker tem botão de pausa por arquivo, janelas de execução e retomada automática por timer; a comunicação entre servidores passa por túnel SSH restrito.</p>
+            <div class="tags"><span>PostgreSQL</span><span>SSH tunnel</span><span>systemd</span><span>Filas</span><span>Resiliência</span></div>
+          </article>
+
+          <article class="project-card reveal">
+            <div class="project-top"><span class="project-tag">Redes</span><span class="project-year">2026</span></div>
+            <h3>Firewall automatizado e túneis privados</h3>
+            <p>Cadeia de firewall dedicada com listas de IPs de CDN, fechamento de portas de aplicação na interface pública e timer de garantia. Replicação de banco e acesso a serviços internos protegidos por WireGuard e túneis SSH restritos, além de hardening de nginx.</p>
+            <div class="tags"><span>iptables</span><span>Cloudflare</span><span>WireGuard</span><span>nginx</span><span>Hardening</span></div>
+          </article>
+
+          <article class="project-card reveal">
+            <div class="project-top"><span class="project-tag">Governança</span><span class="project-year">2026</span></div>
+            <h3>Observação somente leitura e retenção LGPD</h3>
+            <p>Painéis e snapshots somente leitura do banco para acompanhar a operação sem risco de alteração, combinados com auditoria de capacidade. Rotina de retenção LGPD com varredura, dry-run, quarentena e restauração — nada é apagado sem decisão explícita.</p>
+            <div class="tags"><span>Read-only</span><span>Snapshots</span><span>LGPD</span><span>Dry-run</span><span>Auditoria</span></div>
+          </article>
+
+          <article class="project-card reveal">
+            <div class="project-top"><span class="project-tag">IA &amp; Automação</span><span class="project-year">2026</span></div>
+            <h3>Ponte webhook → agente → WhatsApp</h3>
+            <p>Gateway que recebe tarefas por webhook, dispara um agente de código em modo não interativo e devolve o resultado em grupo de mensageria. Com monitoramento de hosts, status de serviços e trilha das execuções.</p>
+            <div class="tags"><span>Webhook</span><span>Agentes</span><span>Codex</span><span>WhatsApp</span><span>Monitoramento</span></div>
           </article>
         </div>
       </div>
