@@ -137,15 +137,27 @@ ul { list-style: none; margin: 0; padding: 0; }
 }
 .site-header.scrolled { border-bottom-color: var(--border); }
 .nav { display: flex; align-items: center; gap: 24px; height: 76px; }
-.brand { display: flex; align-items: center; gap: 10px; margin-right: auto; font-weight: 700; }
+.brand { display: flex; align-items: center; gap: 12px; margin-right: auto; }
 .brand-mark {
-  display: grid; place-items: center; width: 38px; height: 38px;
-  border-radius: 10px; background: var(--grad); color: #06121f;
-  font-family: var(--mono); font-size: 15px; font-weight: 700; letter-spacing: -1px;
-  transition: background .4s var(--ease);
+  flex: none; width: 38px; height: 38px;
+  filter: drop-shadow(0 4px 12px rgba(10, 35, 80, .35));
 }
-.brand-dot { opacity: .7; }
-.brand-name { font-size: 15px; letter-spacing: -.2px; }
+.brand-mark svg { width: 100%; height: 100%; display: block; }
+.brand-hex { transform-origin: 20px 20px; transition: stroke .35s var(--ease), transform .7s var(--ease); }
+.brand-no { transform-origin: 20px 20px; transition: transform .5s var(--ease); }
+.brand-links { transition: opacity .35s var(--ease), transform .7s var(--ease); transform-origin: 20px 20px; }
+.brand:hover .brand-hex { stroke: var(--accent); transform: rotate(30deg); }
+.brand:hover .brand-links { opacity: 1; transform: rotate(30deg); }
+.brand:hover .brand-no { transform: scale(1.12); }
+.brand-texto { display: flex; flex-direction: column; line-height: 1.1; }
+.brand-nome {
+  font-family: var(--font); font-weight: 700; font-size: 12.5px;
+  letter-spacing: .22em; color: var(--text); white-space: nowrap;
+}
+.brand-sub {
+  font-family: var(--mono); font-weight: 500; font-size: 9px;
+  letter-spacing: .16em; color: var(--text-muted); margin-top: 4px; white-space: nowrap;
+}
 .nav-menu { display: flex; align-items: center; gap: 28px; font-size: 14px; font-weight: 500; }
 .nav-menu a { color: var(--text-muted); transition: color .2s ease; padding: 8px 0; }
 .nav-menu a:hover { color: var(--text); }
@@ -454,6 +466,9 @@ html[data-theme="light"] .tags span { color: var(--accent-2); }
   .eyebrow { font-size: 11px; }
   .contact-link { padding: 14px 16px; gap: 12px; }
   .contact-icon { width: 38px; height: 38px; }
+  .brand-sub { display: none; }
+  .brand-mark { width: 34px; height: 34px; }
+  .brand-nome { font-size: 11px; letter-spacing: .16em; }
 }
 
 /* ---------- Reduced motion ---------- */
