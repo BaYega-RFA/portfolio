@@ -214,7 +214,7 @@
       "Da mesa de suporte à mind set de segurança.": "От стойки поддержки к мышлению в терминах безопасности.",
       "Trabalho com infraestrutura e suporte desde 2023, passando por microinformática, suporte N2 em ambientes hospitalares, field service e, atualmente,":
         "Работаю с инфраструктурой и поддержкой с 2023 года: микрокомпьютинг, поддержка N2 в больничных средах, выездное обслуживание и сейчас —",
-      "Analista de Infraestrutura e Suporte N3 na Global Hitss Brasil (Claro S.A.)": "аналитик инфраструктуры и поддержки N3 в Global Hitss Brasil (Claro S.A.)",
+      "Analista de Infraestrutura e Suporte N3 na Global Hitss Brasil (Claro S.A.)": "аналитик инфраструктуры и поддержки 3-й линии в Global Hitss Brasil (Claro S.A.)",
       ". No dia a dia, configuro switches e firewalls, faço remote hands para o time N3 de redes, cuido de racks, inventário, VMs e suporte a Windows, Linux e macOS.":
         ". Ежедневно настраиваю коммутаторы и межсетевые экраны, оказываю remote hands команде сетей N3, занимаюсь стойками, инвентаризацией, виртуальными машинами и поддержкой Windows, Linux и macOS.",
       "Minha transição para": "Мой переход в",
@@ -234,7 +234,7 @@
       "Experiência profissional": "Профессиональный опыт",
       "Onde o conhecimento virou entrega.": "Где знания превратились в результаты.",
       "Jan 2025 — atual": "Янв 2025 — по наст. время",
-      "Analista de Infraestrutura e Suporte N3": "Аналитик инфраструктуры и поддержки N3",
+      "Analista de Infraestrutura e Suporte N3": "Аналитик инфраструктуры и поддержки 3-й линии",
       "Infraestrutura e hardware: montagem e manutenção de racks, rollout e movimentação de equipamentos, inventário patrimonial e controle de estoque local.":
         "Инфраструктура и железо: сборка и обслуживание стоек, развёртывание и перемещение оборудования, инвентаризация и учёт локальных запасов.",
       "Redes e conectividade: configuração de": "Сети и связность: настройка",
@@ -419,9 +419,16 @@
     const loc = document.querySelector('meta[property="og:locale"]');
     if (loc) loc.setAttribute("content", lang === "pt" ? "pt_BR" : lang === "en" ? "en_GB" : "ru_RU");
 
-    document.querySelectorAll(".lang-btn").forEach((b) => {
-      b.classList.toggle("is-active", b.dataset.lang === lang);
-      b.setAttribute("aria-pressed", String(b.dataset.lang === lang));
+    const flags = { pt: "🇧🇷", en: "🇬🇧", ru: "🇷🇺" };
+    const codes = { pt: "PT", en: "EN", ru: "RU" };
+    const flag = document.getElementById("langFlag");
+    const code = document.getElementById("langCode");
+    if (flag) flag.textContent = flags[lang];
+    if (code) code.textContent = codes[lang];
+    document.querySelectorAll(".lang-option").forEach((b) => {
+      const ativo = b.dataset.lang === lang;
+      b.classList.toggle("is-active", ativo);
+      b.closest("li")?.setAttribute("aria-selected", String(ativo));
     });
   }
 
@@ -429,7 +436,7 @@
   DICT.en["meta.title"] = "Raphael Ferreira Alves — Infrastructure, Networks & Security";
   DICT.en["meta.description"] = "Portfolio of Raphael Ferreira Alves — Infrastructure and N3 Support Analyst focused on Information Security. Infrastructure, networks, cloud and automation.";
   DICT.ru["meta.title"] = "Рафаэль Феррейра Алвес — Инфраструктура, сети и безопасность";
-  DICT.ru["meta.description"] = "Портфолио Рафаэля Феррейра Алвеса — аналитик инфраструктуры и поддержки N3 с фокусом на информационную безопасность. Инфраструктура, сети, облако и автоматизация.";
+  DICT.ru["meta.description"] = "Портфолио Рафаэля Феррейра Алвеса — аналитик инфраструктуры и поддержки 3-й линии с фокусом на информационную безопасность. Инфраструктура, сети, облако и автоматизация.";
 
   const setTitle = () => {
     if (document.title.__orig === undefined) document.title.__orig = document.title;
@@ -440,9 +447,37 @@
   function init() {
     apply(current);
     setTitle();
-    document.querySelectorAll(".lang-btn").forEach((b) => {
-      b.addEventListener("click", () => { apply(b.dataset.lang); setTitle(); });
+
+    const trigger = document.getElementById("langTrigger");
+    const menu = document.getElementById("langMenu");
+    const fechar = () => {
+      if (!menu || !trigger) return;
+      menu.classList.remove("aberto");
+      trigger.setAttribute("aria-expanded", "false");
+    };
+
+    trigger?.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const aberto = menu.classList.toggle("aberto");
+      trigger.setAttribute("aria-expanded", String(aberto));
     });
+
+    document.querySelectorAll(".lang-option").forEach((b) => {
+      b.addEventListener("click", (e) => {
+        e.stopPropagation();
+        apply(b.dataset.lang);
+        setTitle();
+        fechar();
+      });
+    });
+
+    document.addEventListener("click", (e) => {
+      if (!e.target.closest("#langDropdown")) fechar();
+    });
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") fechar();
+    });
+
     window.setLang = apply;
   }
 
