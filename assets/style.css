@@ -346,6 +346,12 @@ html[data-scene="gelo"] .hero-veu { background: linear-gradient(90deg, rgba(238,
 .about-grid { display: grid; grid-template-columns: 1.6fr .8fr; gap: 56px; align-items: start; }
 .about-text p { color: var(--text-muted); margin: 0 0 18px; }
 .about-text strong { color: var(--text); font-weight: 600; }
+.about-text p.about-fecho {
+  margin-top: 24px; padding-left: 16px;
+  border-left: 2px solid var(--accent);
+  color: var(--text); font-weight: 600;
+  transition: border-color .4s var(--ease);
+}
 .about-facts { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
 .fact { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 22px; transition: transform .25s var(--ease), border-color .25s ease, box-shadow .25s ease; }
 .fact:hover { transform: translateY(-4px); border-color: var(--accent); box-shadow: var(--shadow); }
