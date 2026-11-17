@@ -419,11 +419,12 @@
     const loc = document.querySelector('meta[property="og:locale"]');
     if (loc) loc.setAttribute("content", lang === "pt" ? "pt_BR" : lang === "en" ? "en_GB" : "ru_RU");
 
-    const flags = { pt: "🇧🇷", en: "🇬🇧", ru: "🇷🇺" };
+    const flags = { pt: "assets/flags/br.svg", en: "assets/flags/gb.svg", ru: "assets/flags/ru.svg" };
     const codes = { pt: "PT", en: "EN", ru: "RU" };
+    const nomes = { pt: "Português (Brasil)", en: "English (United Kingdom)", ru: "Русский" };
     const flag = document.getElementById("langFlag");
     const code = document.getElementById("langCode");
-    if (flag) flag.textContent = flags[lang];
+    if (flag) { flag.setAttribute("src", flags[lang]); flag.setAttribute("alt", nomes[lang]); }
     if (code) code.textContent = codes[lang];
     document.querySelectorAll(".lang-option").forEach((b) => {
       const ativo = b.dataset.lang === lang;
