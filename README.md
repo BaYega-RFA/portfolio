@@ -1,4 +1,4 @@
-<div align="center">
+﻿<div align="center">
 
 <img src="assets/foto-raphael.webp" alt="Retrato de Raphael Ferreira Alves" width="150" height="150" style="border-radius:50%;object-fit:cover">
 
@@ -24,7 +24,7 @@ Minha virada para **Segurança da Informação** é prática: gestão de vulnera
 
 Fora do expediente, construo sistemas que me ajudam a pensar: um vault de memória em Obsidian compartilhado entre IAs, automações em Python e PowerShell, transcrição de áudio com Whisper e uma dupla de VPS que virou laboratório de SSH, redes e observabilidade.
 
-> "Se o problema aparecer, conta com o Ralphie — com calma, diagnóstico claro e solução documentada."
+> "Se o problema aparecer, conte comigo — com calma, diagnóstico claro e solução documentada."
 
 ## 🚀 O que faço
 
@@ -37,7 +37,7 @@ Fora do expediente, construo sistemas que me ajudam a pensar: um vault de memór
 | 🧠 Engenharia de contexto | Obsidian como fonte única de memória e padrões portáteis entre IAs |
 | 💬 Mensageria & Integrações | Gupshup/WhatsApp, n8n, webhooks assinados, Chatwoot |
 
-## 🔧 Trampo concreto
+## 🔧 Projetos & entregas
 
 Coisas que saíram do papel e rodam de verdade. Descrições generalizadas — sem IP, porta, hostname, cliente ou credencial.
 
